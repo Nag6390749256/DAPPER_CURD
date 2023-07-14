@@ -1,0 +1,20 @@
+﻿@model LoginModel
+<div class="container">
+    <form action="" method="post">
+        <div class="row">
+            <div class="col-sm-4">
+                <label>User Name</label>
+                <input type="text" name="@nameof(Model.Username)" asp-for="@Model.Username" id="txtname" class="form-control" />
+                <span class="text-danger" asp-validation-for="@Model.Username"></span>
+                <label>Age</label>
+                <input type="text" name="@nameof(Model.Password)" id="txtage" asp-for="@Model.Password" class="form-control" />
+                <span class="text-danger" asp-validation-for="@Model.Password"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <button type="submit" class="btn btn-success mt-3" id="btnsubmit">Submit</button><br />
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,51 @@
+﻿@model EmployeeModel
+<div class="container">
+    <form data-ajax-url="/Home/Create" data-ajax="true" method="post" data-ajax-success="response" data-ajax-failure="OnFailure">
+        <div class="row">
+            <div class="col-sm-3">
+                <p style="background-color:forestgreen">@ViewData["Msg"]</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <label>Name</label>
+                <input type="hidden" name="@nameof(Model.Id)" asp-for="@Model.Id" />
+                <input type="text" name="@nameof(Model.Name)" asp-for="@Model.Name" id="txtname" class="form-control" />
+                <span class="text-danger" asp-validation-for="@Model.Name"></span>
+            </div>
+            <div class="col-sm-12">
+                <label>Age</label>
+                <input type="number" name="@nameof(Model.Age)" id="txtage" asp-for="@Model.Age" class="form-control" />
+                <span class="text-danger" asp-validation-for="@Model.Age"></span>
+            </div>
+            <div class="col-sm-12">
+                <label>Salary</label>
+                <input type="number" name="@nameof(Model.Salary)" id="txtsalary" asp-for="@Model.Salary" class="form-control" />
+                <span class="text-danger" asp-validation-for="@Model.Salary"></span>
+            </div>
+            <div class="col-sm-12">
+                <label>Position</label>
+                <input type="text" id="txtposition" name="@nameof(Model.Position)" asp-for="@Model.Position" class="form-control" />
+                <span class="text-danger" asp-validation-for="@Model.Position"></span>
+            </div>
+            <div class="col-sm-12">
+                <label>Department</label>
+                <input type="text" id="Department" name="@nameof(Model.Department)" asp-for="@Model.Department" class="form-control" />
+                <span class="text-danger" asp-validation-for="@Model.Department"></span>
+            </div>
+            <div class="col-sm-3">
+                <button type="submit" class="btn btn-success mt-3" id="btnsubmit">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+@section Scripts{
+    <script>
+        var response = (res) => {
+            alert("Record save successfully...");
+        }
+        function OnFailure(response) {
+            alert("Record insertion failed...");
+        }
+    </script>
+}
